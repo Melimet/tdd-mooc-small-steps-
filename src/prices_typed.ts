@@ -84,8 +84,6 @@ function createApp(database: Database) {
     ));
   }
 
-
-
   return app;
 }
 
