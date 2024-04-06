@@ -22,7 +22,7 @@ function createApp(database: Database) {
     const baseCost = database.findBasePriceByType(type)!.cost;
     const date = parseDate(req.query.date as string);
     const temporalDate = parseTemporalDate(req.query.date as string)
-    const cost = calculateCost(age, type, date, baseCost, temporalDate);
+    const cost = calculateCost(age, type, undefined, baseCost, temporalDate);
     res.json({ cost });
   });
 
@@ -72,7 +72,7 @@ function createApp(database: Database) {
   }
 
   function calculateReduction(date: Date | undefined, temporalDate?: Temporal.PlainDate) {
-    if (date && temporalDate && isMonday(temporalDate) && !isTemporalHoliday(temporalDate)) {
+    if ( temporalDate && isMonday(temporalDate) && !isTemporalHoliday(temporalDate)) {
       return 35
     }
     return 0;
