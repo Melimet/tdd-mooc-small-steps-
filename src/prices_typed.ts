@@ -85,7 +85,9 @@ function createApp(database: Database) {
 
   const isTemporalHoliday = (date?: Temporal.PlainDate): boolean => {
     const holidays: Holiday[]  = database.getHolidays();
-    return !!(holidays.find((holiday: Holiday) => { const holidate =Temporal.PlainDate.from(holiday.holiday) === date }
+    return !!(holidays.find((holiday: Holiday) => {
+      const holidate =Temporal.PlainDate.from(holiday.holiday)
+      === date }
     ));
   }
 
