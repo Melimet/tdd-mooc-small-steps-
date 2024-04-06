@@ -73,7 +73,7 @@ function createApp(database: Database) {
   }
 
   function calculateReduction(date: Date | undefined, temporalDate?: Temporal.PlainDate) {
-    if (date && temporalDate && isMonday(temporalDate) && !isHoliday(date)) {
+    if (date && temporalDate && isMonday(temporalDate) && !isTemporalHoliday(temporalDate)) {
       return 35
     }
     return 0;
