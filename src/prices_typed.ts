@@ -87,7 +87,8 @@ function createApp(database: Database) {
 
   const isTemporalHoliday = (date?: Temporal.PlainDate): boolean => {
     const holidays: Holiday[]  = database.getHolidays();
-    return !!(holidays.find((holiday: Holiday) => Temporal.PlainDate.from(holiday.holiday) === date));}
+    return !!(holidays.find((holiday: Holiday) => Temporal.PlainDate.from(holiday.holiday) === date));
+  }
 
   function isHoliday(date: Date | undefined) {
     const holidays = database.getHolidays();
