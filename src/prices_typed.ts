@@ -80,7 +80,7 @@ function createApp(database: Database) {
     return reduction;
   }
 
-  const isTemporalMonday = (date?: Temporal.PlainDate) => date ? date.day === 1: false;
+  const isTemporalMonday = (date?: Temporal.PlainDate) => date ? date.dayOfWeek === 1: false;
 
   function isMonday(date: Date) {
     return date.getDay() === 1;
