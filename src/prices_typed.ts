@@ -87,7 +87,7 @@ function createApp(database: Database) {
     const holidays: Holiday[]  = database.getHolidays();
     return !!(holidays.find((holiday: Holiday) => {
       const holidate =Temporal.PlainDate.from(holiday.holiday)
-      === date }
+      return Temporal.PlainDate.compare(holidate, date)}
     ));
   }
 
