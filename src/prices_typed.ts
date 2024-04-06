@@ -26,7 +26,9 @@ function createApp(database: Database) {
   });
 
 
-  function parseDate(dateString?: string) { return dateString ? Temporal.PlainDate.from(dateString) : undefined }
+  function parseDate(dateString?: string) {
+    return dateString ? Temporal.PlainDate.from(dateString) : undefined
+  }
 
   function calculateCost(age: number | undefined, type: string,  baseCost: number, date?: Temporal.PlainDate) {
     if (type === "night") {
