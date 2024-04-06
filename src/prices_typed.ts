@@ -1,6 +1,6 @@
 import "./polyfills";
 import express from "express";
-import { Database } from "./database";
+import { Database, Holiday } from "./database";
 import { Temporal } from "@js-temporal/polyfill"
 
 // Refactor the following code to get rid of the legacy Date class.
@@ -85,7 +85,7 @@ function createApp(database: Database) {
     return date.getDay() === 1;
   }
 
-  const isTemporalHoliday = (date?: Temporal.PlainDate) => {const holidays  = database.getHolidays(); return holidays.includes((holiday) => Temporal.PlainDate.from(holiday.holiday) === date);}
+  const isTemporalHoliday = (date?: Temporal.PlainDate) => {const holidays: Holiday[]  = database.getHolidays(); return holidays.includes((holiday) => Temporal.PlainDate.from(holiday.holiday) === date);}
 
   function isHoliday(date: Date | undefined) {
     const holidays = database.getHolidays();
