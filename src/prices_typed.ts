@@ -82,9 +82,6 @@ function createApp(database: Database) {
 
   const isTemporalMonday = (date?: Temporal.PlainDate) => date ? date.dayOfWeek === 1: false;
 
-  function isMonday(date: Date) {
-    return date.getDay() === 1;
-  }
 
   const isTemporalHoliday = (date?: Temporal.PlainDate): boolean => {
     const holidays: Holiday[]  = database.getHolidays();
