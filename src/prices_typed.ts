@@ -56,7 +56,7 @@ function createApp(database: Database) {
   }
 
   function calculateCostForDayTicket(age: number | undefined, date: Date | undefined, baseCost: number, temporalDate?: Temporal.PlainDate) {
-    let reduction = calculateReduction(date);
+    let reduction = calculateReduction(date, temporalDate);
     if (age === undefined) {
       return Math.ceil(baseCost * (1 - reduction / 100));
     }
@@ -72,7 +72,7 @@ function createApp(database: Database) {
     return Math.ceil(baseCost * (1 - reduction / 100));
   }
 
-  function calculateReduction(date: Date | undefined) {
+  function calculateReduction(date: Date | undefined, temporalDate?: Temporal.PlainDate) {
     let reduction = 0;
     if (date && isMonday(date) && !isHoliday(date)) {
       reduction = 35;
